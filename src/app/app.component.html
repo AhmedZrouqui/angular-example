@@ -1,0 +1,15 @@
+<div class="p-4">
+  <app-product />
+  <button (click)="onBtnClick()" class="px-3 mt-2 py-1 bg-emerald-600 rounded text-white">Add to cart</button>
+  <div>
+    my cart
+    <div *ngIf="cart$ !== undefined">
+      <div *ngFor="let product of cart$.products">
+        <div>
+          {{product.name}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

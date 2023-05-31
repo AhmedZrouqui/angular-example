@@ -1,0 +1,11 @@
+type Cart @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Products: [Product] @hasMany(indexName: "byCart", fields: ["id"])
+}
+
+type Product @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  cartID: ID! @index(name: "byCart")
+}
+ 
